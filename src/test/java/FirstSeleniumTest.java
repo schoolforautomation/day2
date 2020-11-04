@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class FirstSeleniumTest {
@@ -22,10 +23,10 @@ public class FirstSeleniumTest {
         passwordInput.sendKeys("test1234");
         loginButton.click();
 
-        // WebElement getStartedButton = driver.findElement(By.id("get-started"));
-        WebElement getStartedButton = driver.findElement(By.xpath("//*[@id=\"cta\"]/div[2]/div/div/a"));
-        getStartedButton.click();
-        Thread.sleep(5000);
+        WebElement getStartedButton = driver.findElement(By.id("get-started"));
+        Assert.assertTrue(getStartedButton.isDisplayed());
+
+        Thread.sleep(3000);
 
         driver.close();
     }
